@@ -46,5 +46,6 @@ q.enqueue("Be happy");
 
 q.dequeue();
 q.dequeue();
-console.log(q.peek());
+//console.log(q.peek());
+console.log(q.isEmpty());
 // q.dequeue();
