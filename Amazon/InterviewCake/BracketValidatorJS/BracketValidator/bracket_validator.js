@@ -35,6 +35,7 @@ function isBracketValidator(code) {
     return openersStack.length === 0;
 }
 
+console.log(isBracketValidator("[],(),[],(}"));
 
 /*Methods Used:
 
@@ -55,4 +56,25 @@ of the single UTF-16 code unit located at the specified offset into the string.
 
 */
 
-console.log(isBracketValidator("[],(),[],(}"));
+
+
+/* 
+https://www.interviewcake.com/question/javascript/bracket-validator
+
+Solution
+We iterate through our string, making sure that:
+
+each closer corresponds to the most recently seen, unclosed opener
+every opener and closer is in a pair
+We use a stack ↴ to keep track of the most recently seen, unclosed opener. And if the stack is ever empty when we come to a closer, we know that closer doesn't have an opener.
+
+So as we iterate:
+
+If we see an opener, we push it onto the stack.
+If we see a closer, we check to see if it is the closer for the opener at the top of the stack. If it is, we pop from the stack. If it isn't, or if the stack is empty, we return false.
+If we finish iterating and our stack is empty, we know every opener was properly closed.
+
+
+
+
+*/
