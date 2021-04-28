@@ -55,7 +55,7 @@ function isTreeBalanced(treeRoot) {
         const node = nodePair[0];
         const depth = nodePair[1];
 
-        if (!node.left && !node.rifght) {
+        if (!node.left && !node.right) {
             //Case: we found a leaf
             //We only care if its a new depth
             if (depths.indexOf(depth) < 0) {
