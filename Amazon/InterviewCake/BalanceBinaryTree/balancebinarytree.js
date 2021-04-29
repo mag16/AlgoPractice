@@ -45,7 +45,7 @@ function isTreeBalanced(treeRoot) {
 
     const depths = []; // We short-citcuit as soon as we find more than 2
 
-    //Nodes will soter pairs of a node and the node's depth.
+    //Nodes will store pairs of a node and the node's depth.
     const nodes = [];
     nodes.push([treeRoot, 0]);
 
@@ -62,12 +62,12 @@ function isTreeBalanced(treeRoot) {
               // Two ways we might now have an unbalanced tree:
               //   1) More than 2 different leaf depths
               //   2) 2 leaf depths that are more than 1 apart
-                if ((depths.length > 2) || (depths.length === 2 && Math.abs(depths[0] - depth[1] > 1))) {
+                if ((depths.length > 2) || (depths.length === 2 && Math.abs(depths[0] - depths[1] > 1))) {
                     return false;
                 }
             }
         } else {
-            // Case: this is a leaf - keep stepping down
+            // Case: this isnt a leaf - keep stepping down
             if (node.left) {
                 nodes.push([node.left, depth + 1]);
             }
