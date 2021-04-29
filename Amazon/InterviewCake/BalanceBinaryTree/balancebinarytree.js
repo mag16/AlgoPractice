@@ -55,8 +55,8 @@ function isTreeBalanced(treeRoot) {
         const node = nodePair[0];
         const depth = nodePair[1];
 
-        if (!node.left && !node.right) {
-            //Case: we found a leaf
+        if (!node.left && !node.right) { //then this is a LEAF node
+            //Case: we found a leaf node(node w/out children)
             //We only care if its a new depth
             if (depths.indexOf(depth) < 0) {
               // Two ways we might now have an unbalanced tree:
@@ -72,7 +72,7 @@ function isTreeBalanced(treeRoot) {
                 nodes.push([node.left, depth + 1]);
             }
             if (node.right) {
-                nodes.push([node.rightl, depth + 1]);
+                nodes.push([node.right, depth + 1]);
             }
         }
     }
@@ -81,4 +81,4 @@ function isTreeBalanced(treeRoot) {
 }
 
 console.log(isTreeBalanced([1, 2, 2, 3, 3, null, null, 4, 4]));
-console.log(isTreeBalanced([]));
+console.log(isTreeBalanced([]));// tree w no nodes returns true

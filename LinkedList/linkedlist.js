@@ -12,6 +12,11 @@ class LinkedList {
     this.length = 0;
   }
 
+  // method returns trye if there are no nodes in the list
+  isEmpty() {
+    return this.length === 0;
+  }
+
   //insert at the end (shorter)
   insert(value) {
     const node = { value, next: null };
