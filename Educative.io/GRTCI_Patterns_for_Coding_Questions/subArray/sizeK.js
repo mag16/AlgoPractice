@@ -47,6 +47,11 @@ subarray of size ‘k’.
 
 very similar as above, we make just one minor change in the function with
 finding the max sum w Math.max
+Time Complexity #
+The time complexity of the below algorithm will be O(N).
+
+Space Complexity #
+The algorithm runs in constant space O(1).
 */
 
 function max_sub_array_of_size_k(k, arr) {
