@@ -1,5 +1,6 @@
 /* 
- At its simplest definition, it's a nested function that has access to at least three levels of scopes
+ At its simplest definition, it's a nested function that has access 
+ to at least three levels of scopes
 (it's own scope, the parent scope, and the global scope)
 
 The child() function is a closure and it has access to

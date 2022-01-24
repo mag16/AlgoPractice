@@ -12,7 +12,7 @@ class LinkedList {
     this.length = 0;
   }
 
-  // method returns trye if there are no nodes in the list
+  // method returns true if there are no nodes in the list
   isEmpty() {
     return this.length === 0;
   }
