@@ -36,7 +36,7 @@ class BinaryTree {
                     current.left = newNode;
                     return this;
                 }
-                current = left;
+                current = current.left;
             } else {
                 if (current.right === null) {
                     current.right = newNode;
@@ -47,10 +47,35 @@ class BinaryTree {
         }      
     }
 
+    findNode(value) {
+        if (!this.root) return false;
 
+        let current = this.root;
+        let found = false;
+        while (current && !found) {
+            if (value < current.value) {
+                current = current.left
+            } else if (value > current.value) {
+                current = current.right
+            } else {
+                found = current;
+            }
+        }
 
-
-
-
-
+        if (!found) return `This node does not exist`;
+        return found;
+    }
 }
+
+let BST = new BinaryTree();
+
+BST.insert(100);
+BST.insert(50);
+BST.insert(200);
+BST.insert(25);
+BST.insert(75);
+BST.insert(200);
+BST.insert(350);
+
+console.log(BST);
+console.log(BST.findNode(352));
