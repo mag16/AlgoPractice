@@ -18,7 +18,7 @@ https://alkeshghorpade.me/post/leetcode-implement-strstr
 */
 
 
-
+//KMP Algorithm in O(m + n)
 let strStr = function (haystack, needle) {
 
   if (needle.length == 0) {
@@ -87,4 +87,30 @@ let strStr2 = function (haystack, needle) {
 
 }
 
-console.log(strStr2("hello", "ll"));
+//console.log(strStr2("hello", "ll"));
+
+//recursive approach
+
+let strStr3 = function (haystack, needle) {
+  
+  //condition checks
+  if (needle.length == 0) {
+    return 0;
+  }
+
+  if (haystack.length < needle.length) {
+    return -1;
+  }
+
+  for (let i = 0; i < haystack.length; i++){
+    if (haystack.charAt(i) == needle.charAt(0)) {
+      let s = strStr3(haystack.substring(i + 1), needle.substring(1));
+      return (s != null) ? haystack.charAt(i) + s : null;
+    }
+
+  }
+
+  return null;
+}
+
+console.log(strStr3("hello", "ll"));
