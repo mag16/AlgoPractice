@@ -49,6 +49,38 @@ class LinkedList {
       current = current.next;
     }
   }
+
+  removeNthFromEnd(head, n) {
+    // To store length of the linked list
+    var len = 0;
+    var tmp = head;
+    while (tmp != null) {
+      len++;
+      tmp = tmp.next;
+    }
+
+    // n > length, then we can't remove node
+    if (n > len) {
+      return head;
+    }
+
+    // We need to remove head node
+    else if (n == len) {
+      // Return head.next
+      return head.next;
+    } else {
+      // Remove len - n th node from starting
+      var diff = len - n;
+      var prev = null;
+      var curr = head;
+      for (i = 0; i < diff; i++) {
+        prev = curr;
+        curr = curr.next;
+      }
+      prev.next = curr.next;
+      return head;
+    }
+  }
     
 }
 
