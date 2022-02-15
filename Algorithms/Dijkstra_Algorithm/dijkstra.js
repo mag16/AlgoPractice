@@ -44,14 +44,14 @@ class Graph {
       let shortestStep = pq.dequeue();
       let currentNode = shortestStep[0];
 
-      this.adjacencyList[currentNode].forEach((neighbor) => {
-        let time = times[currentNode] + neighbor.weight;
-        if (time < times[neighbor.node]) {
-          times[neighbor.node] = time;
-          backtrace[neighbor.node] = currentNode;
-          pq.enqueue([neighbor, time]);
-        }
-      });
+     this.adjacencyList[currentNode].forEach((neighbor) => {
+       let time = times[currentNode] + neighbor.weight;
+       if (time < times[neighbor.node]) {
+         times[neighbor.node] = time;
+         backtrace[neighbor.node] = currentNode;
+         pq.enqueue([neighbor.node, time]);
+       }
+     });
     }
 
     let path = [endNode];
@@ -100,9 +100,41 @@ class PriorityQueue {
 let map = new Graph();
 map.addNode("FS");
 map.addNode("SB");
-
+map.addNode("IC");
+map.addNode("CG");
+map.addNode("DI");
+map.addNode("DR");
+//FS Edges...connections to each node
 map.addEdge("FS", "SB", 6);
-map.addEdge("FS", "DG", 7);
+map.addEdge("FS", "DI", 7);
+map.addEdge("FS", "DR", 2);
+
+//SB
+map.addEdge("SB", "FS", 6);
+map.addEdge("SB", "DR", 3);
+map.addEdge("SB", "IC", 6);
+
+//IC
+map.addEdge("IC", "SB", 6);
+map.addEdge("IC", "DR", 7);
+map.addEdge("IC", "CG", 5);
+
+//CG
+map.addEdge("CG", "IC", 5);
+map.addEdge("CG", "DI", 9);
+
+//DI
+map.addEdge("DI", "CG", 9);
+map.addEdge("DI", "DR", 4);
+map.addEdge("DI", "FS", 7);
+
+//DR...middle node connected to 4 locations(nodes)
+map.addEdge("DR", "FS", 2);
+map.addEdge("DR", "SB", 3);
+map.addEdge("DR", "IC", 7);
+map.addEdge("DR", "DI", 4);
+
+console.log(map.findPathWithDijkstra("IC", "DI")); //11
 
 /*
 
