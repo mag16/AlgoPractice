@@ -1,0 +1,1 @@
+// tries are used to search and add strings as well as look for partial string (ex: search engines)
