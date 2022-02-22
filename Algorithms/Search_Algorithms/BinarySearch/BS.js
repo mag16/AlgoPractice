@@ -1,10 +1,6 @@
 /* 
 
-
-
-
 PSEUDO:
-
 1)Let min = 0 and max = n.
 2)Guess the average of max and min, rounded down so that it is an integer.
 3)If you guessed the number, stop. You found it!
@@ -37,3 +33,8 @@ function BinarySearch(arr, target) {
 }
 
 console.log(BinarySearch([1, 3, 5, 7, 8, 9], 10));
+
+/* 
+the worst-case running time of binary search is Θ(lg n).
+
+*/
