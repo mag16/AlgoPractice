@@ -18,6 +18,17 @@ console.log(reverseString("Marco"));
 reverseWords()
 Write a function reverse_words() that takes a message as a list
 of characters and reverses the order of the words in place. ↴
+
+O(n) time and O(1)O(1) space!
+
+The naive solution of reversing the words one at a time had a worst-case O(n^2)
+runtime. That's because swapping words with different lengths required "scooting over" all the other characters to make room.
+
+To get around this "scooting over" issue, we reversed all the characters in the message first. This put all the words 
+in the correct spots, but with the characters in each word backward. So to get the final 
+answer, we reversed the characters in each word. This all takes two passes through the 
+message, so O(n)time total.
+
 */
 
 function reverseWords(message) {
