@@ -17,6 +17,10 @@ applepie
 Input string “applepeer” cannot be segmented into dictionary words.
 applepeer
 
+Runtime Complexity: Exponential, O(2^n)
+
+Memory Complexity: Polynomial, O(n^2)
+
 */
 
 function canSegmentString(s, dictionary) {
@@ -40,9 +44,7 @@ function canSegmentString(s, dictionary) {
           }
         }  
     }
-
-    return false;
-    
+    return false;    
 };
 
 let s = "hellonow";
