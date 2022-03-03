@@ -35,8 +35,8 @@ function canSegmentString(s, dictionary) {
             return true;
           }
           
-            if (second_word.length === 0) {
-                return true;
+          if (second_word.length === 0) {
+            return true;
           }
 
           if (canSegmentString(second_word, dictionary)) {

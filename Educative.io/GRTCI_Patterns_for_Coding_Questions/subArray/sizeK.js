@@ -26,7 +26,8 @@ function find_averages_of_subarrays(K, arr) {
         windowStart = 0;
     for (let windowEnd = 0; windowEnd < arr.length; windowEnd++){
         windowSum += arr[windowEnd]; // add the next element
-        // slide the window, we dont need the slide if weve not hit the required window size of 'k'
+        // slide the window, we dont need the slide if weve not hit the required 
+        //window size of 'k'
         if (windowEnd >= K - 1) {
             result.push(windowSum / K); //calculate the average
             windowSum -= arr[windowStart]; //subtract the element going out
@@ -59,9 +60,10 @@ function max_sub_array_of_size_k(k, arr) {
         windowSum = 0,
         windowStart = 0;
     
-    for (window_end = 0; window_end < arr.length; window_end++){
+    for (let window_end = 0; window_end < arr.length; window_end++){
       windowSum += arr[window_end]; // add the next element
-      // slide the window, we don't need to slide if we've not hit the required window size of 'k'
+      // slide the window, we don't need to slide if we've not hit the required
+      // window size of 'k'
         if (window_end >= k - 1) {
           maxSum = Math.max(maxSum, windowSum);
           windowSum -= arr[windowStart]; // subtract the element going out
@@ -73,3 +75,49 @@ function max_sub_array_of_size_k(k, arr) {
 
 console.log(`Maximum sum of a subarray of size K: ${max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2])}`);
 console.log(`Maximum sum of a subarray of size K: ${max_sub_array_of_size_k(2, [2, 3, 4, 1, 5])}`);
+
+/* 
+
+Given an array of positive numbers and a positive number ‘S,’ f
+find the length of the smallest contiguous subarray whose sum is greater than 
+or equal to ‘S’. Return 0 if no such subarray exists.
+
+Input: [2, 1, 5, 2, 3, 2], S=7 
+Output: 2
+Explanation: The smallest subarray with a sum greater than or equal to '7' is [5, 2].
+
+Input: [2, 1, 5, 2, 8], S=7 
+Output: 1
+Explanation: The smallest subarray with a sum greater than or equal to '7' is [8].
+
+Time Complexity#
+The time complexity of the above algorithm will be O(N). The outer for loop runs for all elements, and the inner while loop processes each element only once; therefore, the time complexity of the algorithm will be O(N+N)O(N+N), which is asymptotically equivalent to O(N)O(N).
+
+Space Complexity#
+The algorithm runs in constant space O(1).
+*/
+
+function smallest_subarray_sum(S, arr) {
+    
+    let minLength = Infinity,
+        windowSum = 0,
+        windowStart = 0;
+    
+    for (let windowEnd = 0; windowEnd < arr.length; windowEnd++){
+
+        while (windowSum >= S) {
+            minLength = Math.min(minLength, windowEnd - windowStart + 1)
+            windowSum -= arr[windowStart];
+            windowStart += 1;     
+        }
+    }
+
+    if (minLength === Infinity) {
+        return 0;
+    }
+    return minLength;    
+}
+
+console.log(`Smallest subarray length: ${smallest_subarray_sum(7, [2, 1, 5, 2, 3, 2])}`);
+console.log(`Smallest subarray length: ${smallest_subarray_sum(7, [2, 1, 5, 2, 8])}`);
+console.log(`Smallest subarray length: ${smallest_subarray_sum(8, [3, 4, 1, 1, 6])}`);

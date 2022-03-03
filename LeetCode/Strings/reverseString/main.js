@@ -12,7 +12,7 @@ function reverseString(str) {
     return reversed;
 }
 
-console.log(reverseString("Marco"));
+//console.log(reverseString("Marco"));
 
 /* 
 reverseWords()
@@ -28,6 +28,8 @@ To get around this "scooting over" issue, we reversed all the characters in the 
 in the correct spots, but with the characters in each word backward. So to get the final 
 answer, we reversed the characters in each word. This all takes two passes through the 
 message, so O(n)time total.
+
+https://www.interviewcake.com/question/javascript/reverse-words?utm_source=weekly_email&utm_source=drip&utm_campaign=weekly_email&utm_campaign=Interview%20Cake%20Weekly%20Problem%20%23388:%20Reverse%20Words&utm_medium=email&utm_medium=email
 
 */
 
@@ -55,7 +57,7 @@ function reverseWords(message) {
             currentWordStartIndex = i + 1;
         }
     }
-};
+}
 
 function reverseCharacters(message, leftIndex, rightIndex) {
     
@@ -63,10 +65,14 @@ function reverseCharacters(message, leftIndex, rightIndex) {
     while (leftIndex < rightIndex) {
         
         // swap the left char and right char
-        const temp = message[leftIndex];
+        let temp = message[leftIndex];
         message[leftIndex] = message[rightIndex];
         message[rightIndex] = temp;
         leftIndex++;
         rightIndex--;
     }
 }
+let s = "Practice those coding problems";
+//reverseCharacters(s,0,s.length-1)
+//console.log(reverseCharacters("Practice those coding problems",0,"s"));
+console.log(reverseWords(s));
