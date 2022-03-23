@@ -7,8 +7,8 @@ Given a string, find the length of the longest substring in it with no more than
 
 function longest_substring_with_k_distinct(str, K) {
   let windowStart = 0,
-    maxLength = 0,
-    charFrequency = {}; //use hashmap to remember frequency of each processed char
+      maxLength = 0,// window length aka maxChars... windowend - windowstart
+      charFrequency = {}; //use hashmap to remember frequency of each processed char
 
   for (let window_end = 0; window_end < str.length; window_end++) {
     const rightChar = str[window_end];
@@ -21,6 +21,7 @@ function longest_substring_with_k_distinct(str, K) {
       const leftChar = str[windowStart];
       charFrequency[leftChar] -= 1;
       if (charFrequency[leftChar] === 0) {
+        //While shrinking, we’ll decrement the character’s frequency going out of the window and remove it from the HashMap if its frequency becomes zero.
         delete charFrequency[leftChar];
       }
       windowStart += 1; // shrink the window
@@ -32,7 +33,7 @@ function longest_substring_with_k_distinct(str, K) {
   return maxLength;
 }
 
-console.log(`Length of the longest substring: ${longest_substring_with_k_distinct("araaci", 2)}`);
+console.log(`Length of the longest substring: ${longest_substring_with_k_distinct("araaci", 2)}`);//4
 //Explanation: The longest substring with no more than '2' distinct characters is "araa".
 
 

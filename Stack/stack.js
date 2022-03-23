@@ -15,6 +15,9 @@ hence why it's called a "call stack" in JavaScript
 .Pop:  pop() method removes the last element from an array and returns that element. 
 This method changes the length of the array.
 
+A stack is useful when we want to add elements inside a list into sequential order
+and remove the last element added. 
+
 
 */
 
@@ -57,7 +60,7 @@ console.log(myStack.peek());
 
 /* 
 Strengths:
-Fast operations. All stack operations take O(1)O(1) time.
+Fast operations. All stack operations take O(1)time.
 Uses:
 The call stack is a stack that tracks function calls in a program. When a function returns, which function do we "pop" back to? The last one that "pushed" a function call.
 Depth-first search uses a stack (sometimes the call stack) to keep track of which nodes to visit next.
