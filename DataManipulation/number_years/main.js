@@ -1,5 +1,9 @@
 //DS1 must match DS2 or else its not valid (State  Farm).  Print true if valid else false.
 
+import isEqual from 'lodash.isequal';
+
+
+
 const db1 = [
   { year: "2000", state: "Rio", month: "November", number: 18 },
   { year: "2002", state: "Perambuco", month: "February", number: 64 },
@@ -29,7 +33,7 @@ const sumPerYear = db1.reduce((acc, cur) => {
 console.log(sumPerYear)
 
 //check for equality between two array of {}s
-const isEqual = (sumPerYear, db2) => {
+const isItEqual = (sumPerYear, db2) => {
   if (sumPerYear.length !== db2.length) {
     return false;
   }
@@ -40,4 +44,7 @@ const isEqual = (sumPerYear, db2) => {
 };
 
 
+console.log(isItEqual(sumPerYear, db2));
+
+//checking out lodash isEqual method
 console.log(isEqual(sumPerYear, db2));
