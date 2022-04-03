@@ -13,7 +13,7 @@ function reverseInteger(num) {
         num = - + num;
     }
 
-    num = Math.abs(num).toString().split("").reverse.join("");
+    num = Math.abs(num).toString().split("").reverse().join("");
     num = parseInt(num); // returns the previously converted string back to an int.
 
     if (num < -2147483647 || num > 2147483646) {
@@ -23,3 +23,5 @@ function reverseInteger(num) {
     }
 
 }
+
+console.log(reverseInteger(500006))
