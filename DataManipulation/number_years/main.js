@@ -28,10 +28,7 @@ const sumPerYear = db1.reduce((acc, cur) => {
 
 console.log(sumPerYear)
 
-
-
-//console.log(compare(sumPerYear, db2));
-
+//check for equality between two array of {}s
 const isEqual = (sumPerYear, db2) => {
   if (sumPerYear.length !== db2.length) {
     return false;
