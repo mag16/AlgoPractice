@@ -20,7 +20,7 @@ const db2 = [
 
 
 
-//variable sumPerYear returns the sum per year summing up each month and returning it per month.
+//variable sumPerYear returns the sum per year summing up each month and returning it per month from db1.
 const sumPerYear = db1.reduce((acc, cur) => {
   acc[cur.year] = acc[cur.year] + cur.number || cur.number; // increment or initialize to cur.number
   return acc;
