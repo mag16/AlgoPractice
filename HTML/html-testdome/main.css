@@ -1,0 +1,14 @@
+/* 
+write css so that the link looks like image on screnshot
+
+*/
+
+
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor:help; /* question mark cursor */
+}
