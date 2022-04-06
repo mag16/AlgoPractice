@@ -25,18 +25,45 @@ If there are no records for the country name passed to the request in the system
 In that case, the function should return -1.
 */
 
-async function getCapitalCity(country) {
-    const response = await fetch(`https://jsonmock.hackerrank.com/api/countries?`)
+import fetch from "node-fetch";
 
-
-
-
-
-
-
-
-
-
-
-
+const URL_API = `https://jsonmock.hackerrank.com/api/countries?`;
+async function getResponse() {
+    let response = await fetch(URL_API, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            // handle error
+            console.error(`The unknown error has occurred: ${error}`);
+        });
 }
+
+
+
+async function getCapitalCity(country) {
+    let result = {};
+    const data = await getResponse();
+     for (let info in data) {
+       // console.log(info)
+        if (info.name === country) {
+             //final[data] = {"capital": data[data]["capital"]}
+            result.push(info.name.capital);
+        } else {
+            return -1;
+        }
+
+     }
+    
+    return result;
+}
+
+console.log(getCapitalCity("Angola"));
