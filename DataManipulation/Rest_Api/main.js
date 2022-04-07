@@ -29,41 +29,28 @@ import fetch from "node-fetch";
 
 const URL_API = `https://jsonmock.hackerrank.com/api/countries?`;
 async function getResponse() {
-    let response = await fetch(URL_API, {
-        method: 'GET',
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            // handle error
-            console.error(`The unknown error has occurred: ${error}`);
-        });
+  let response = await fetch(URL_API, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  try {
+    return await response.json();
+  } catch (error) {
+    // handle error
+    console.error(`The unknown error has occurred: ${error}`);
+  }
 }
-
-
 
 async function getCapitalCity(country) {
-    let result = {};
-    const data = await getResponse();
-     for (let info in data) {
-       // console.log(info)
-        if (info.name === country) {
-             //final[data] = {"capital": data[data]["capital"]}
-            result.push(info.name.capital);
-        } else {
-            return -1;
-        }
+  const info = await getResponse();
+  const capital = info.data
+    .filter((item) => item.name === country)
+    .map((item) => item.capital);
 
-     }
-    
-    return result;
+  return capital;
 }
-
-console.log(getCapitalCity("Angola"));
+getCapitalCity("Afghanistan").then((items) => console.log("capital: ", items));
+//console.log(getResponse());
+//console.log(getCapitalCity("Algeria").then(items => console.log('capital: ', items)));

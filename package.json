@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "lodash.isequal": "^4.5.0",
+    "node-fetch": "^3.2.3"
+  }
+}

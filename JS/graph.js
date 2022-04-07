@@ -28,4 +28,4 @@ class Node {
 
 }
 
-let Agraph = new Node();
+let graph = new Node();

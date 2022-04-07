@@ -3,7 +3,6 @@ function mergeSort(array) {
   if (array.length < 2) {
     return array;
   }
-
   //Step 1: divide the array in half
   //need to round down to avoid getting a half index
 // the Math.floor() function returns the largest integer less than or equal 
