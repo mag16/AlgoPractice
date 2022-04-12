@@ -76,3 +76,16 @@ let s = "Practice those coding problems";
 //reverseCharacters(s,0,s.length-1)
 //console.log(reverseCharacters("Practice those coding problems",0,"s"));
 console.log(reverseWords(s));
+
+
+function reversePhrseInPlace(str) {
+    
+     let reverseWordArr = str
+       .split(" ")
+       .map((word) => word.split("").reverse().join(""));
+     return reverseWordArr.join(" ");
+
+
+}
+
+console.log("This is an example!");
