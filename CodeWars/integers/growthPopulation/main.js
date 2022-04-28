@@ -17,4 +17,4 @@ function nbYear(p0, percent, aug, p) {
 
 
 // Function Export
-module.exports = nbYear
+module.exports = { nbYear };

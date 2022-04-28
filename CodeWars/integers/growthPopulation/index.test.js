@@ -1,4 +1,4 @@
-const nbYear = require(".");
+const nbYear = require ("./main.js");
 
 test("Test 1", () => {
   expect(nbYear(1500, 5, 100, 5000)).toBe(15);
