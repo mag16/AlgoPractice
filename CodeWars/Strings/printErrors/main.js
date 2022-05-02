@@ -21,7 +21,7 @@ printer_error(s) => "8/22"
 
 function printerError(s) {
   // your code
-  s = s.toUpperCase();
+  s = s.toUpperCase();//with ASCII we can track alphabet by turning to uppercase.
   let count = 0;
   //numerator is the number of errors and the denominator the length of the control string.
   for (let i = 0; i < s.length; i++) {
