@@ -32,8 +32,52 @@ Write an efficient algorithm for the following assumptions:
 
 function solution(A, B) {
     
+    let answer = 0;
+    if (A + B < 4) return answer;
+    const big = A >= B ? A : B;
+    const small = A <= B ? A : B;
+    //   console.log({ big, small });
+    if (small > 1 && big / Math.trunc(small / 2) >= 2) {
+      answer = Math.trunc(small / 2);
+    }
 
+    for (let idx = 2; idx < 5; idx++) {
+      const half = Math.trunc(big / idx);
+      const bigCount = Math.trunc(big / half);
+      const smallCount = Math.trunc(small / half);
+      // console.log({ bigCount, smallCount });
+      if (bigCount + smallCount < 4) continue;
+      // console.log({ half });
+      answer = Math.max(answer, half);
+    }
 
-
-    
+    return answer;
 }
+
+console.log(solution(1, 8))
+
+function solution(A, B) {
+  // determine shorter and longer
+  const [shorter, longer] = [A, B].sort((a, b) => a - b);
+  //console.log(shorter,longer)
+  // notice: if there's a stick that's at least 4 times as long as the next one, you could return the length of the longer one divided by 4;
+  if (longer / shorter >= 4) {
+    return Math.floor(longer / 4);
+  }
+
+  // if there's a stick that's at least 3 times as long as the next one, you could return the length of the shorter one.
+  if (longer / shorter >= 3) {
+    return Math.floor(shorter);
+  }
+
+  // if larger stick is at least 1.5 times as long as the shorter, we can divide the larger one into 3 parts and cut the excess from the shorter one.
+  if (longer / shorter >= 1.5) {
+    return Math.floor(longer / 3);
+  }
+
+  // Lastly, if larger is 1-1.5 times as long as the shorter,
+  // Return half the length of the shorter stick.
+  return Math.floor(shorter / 2);
+}
+
+console.log(solution(10, 21));
