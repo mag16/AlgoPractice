@@ -54,9 +54,9 @@ function solution(A, B) {
     return answer;
 }
 
-console.log(solution(1, 8))
+//console.log(solution(1, 8))
 
-function solution(A, B) {
+function solution2(A, B) {
   // determine shorter and longer
   const [shorter, longer] = [A, B].sort((a, b) => a - b);
   //console.log(shorter,longer)
@@ -80,4 +80,4 @@ function solution(A, B) {
   return Math.floor(shorter / 2);
 }
 
-console.log(solution(10, 21));
+console.log(solution2(2,1));
